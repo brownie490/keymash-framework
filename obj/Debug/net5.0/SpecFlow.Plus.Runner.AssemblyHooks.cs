@@ -3,7 +3,7 @@
 using global::TechTalk.SpecFlow;
 using global::System.Runtime.CompilerServices;
 
-public class SkeletonFramework_SpecFlowPlusRunnerAssemblyHooks
+public class KeyMashFramework_SpecFlowPlusRunnerAssemblyHooks
 {
     [global::TechTalk.SpecRun.AssemblyInitialize]
     [MethodImpl(MethodImplOptions.NoInlining)]

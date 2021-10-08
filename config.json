@@ -28,8 +28,8 @@
   "driver": {
 
     "browser": "chrome",
-    "type": "remote",
-    "startmaximized": false,
+    "type": "local",
+    "startmaximized": true,
     "defaultwindowsize": "1920,1080",
     "ignoreinvalidcerts": true,
     "useragent": null
