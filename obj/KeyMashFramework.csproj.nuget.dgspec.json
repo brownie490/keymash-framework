@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\BitBucket\\KeymashFramework\\SkeletonFramework.csproj": {}
+    "C:\\BitBucket\\KeymashFramework\\KeyMashFramework.csproj": {}
   },
   "projects": {
-    "C:\\BitBucket\\KeymashFramework\\SkeletonFramework.csproj": {
+    "C:\\BitBucket\\KeymashFramework\\KeyMashFramework.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\BitBucket\\KeymashFramework\\SkeletonFramework.csproj",
-        "projectName": "SkeletonFramework",
-        "projectPath": "C:\\BitBucket\\KeymashFramework\\SkeletonFramework.csproj",
+        "projectUniqueName": "C:\\BitBucket\\KeymashFramework\\KeyMashFramework.csproj",
+        "projectName": "KeyMashFramework",
+        "projectPath": "C:\\BitBucket\\KeymashFramework\\KeyMashFramework.csproj",
         "packagesPath": "C:\\Users\\AdamBrown\\.nuget\\packages\\",
         "outputPath": "C:\\BitBucket\\KeymashFramework\\obj\\",
         "projectStyle": "PackageReference",

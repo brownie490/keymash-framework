@@ -5,16 +5,16 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
-COPY ["SkeletonFramework.csproj", ""]
-RUN dotnet restore "./SkeletonFramework.csproj"
+COPY ["KeyMashFramework.csproj", ""]
+RUN dotnet restore "./KeyMashFramework.csproj"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "SkeletonFramework.csproj" -c Release -o /app/build
+RUN dotnet build "KeyMashFramework.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "SkeletonFramework.csproj" -c Release -o /app/publish
+RUN dotnet publish "KeyMashFramework.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "SkeletonFramework.dll"]
+ENTRYPOINT ["dotnet", "KeyMashFramework.dll"]

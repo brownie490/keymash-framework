@@ -8274,23 +8274,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\adbrown-a\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\AdamBrown\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Automation\\SkeletonFramework\\SkeletonFramework.csproj",
-      "projectName": "SkeletonFramework",
-      "projectPath": "C:\\Automation\\SkeletonFramework\\SkeletonFramework.csproj",
-      "packagesPath": "C:\\Users\\adbrown-a\\.nuget\\packages\\",
-      "outputPath": "C:\\Automation\\SkeletonFramework\\obj\\",
+      "projectUniqueName": "C:\\BitBucket\\KeymashFramework\\KeyMashFramework.csproj",
+      "projectName": "KeyMashFramework",
+      "projectPath": "C:\\BitBucket\\KeymashFramework\\KeyMashFramework.csproj",
+      "packagesPath": "C:\\Users\\AdamBrown\\.nuget\\packages\\",
+      "outputPath": "C:\\BitBucket\\KeymashFramework\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\adbrown-a\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\AdamBrown\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
