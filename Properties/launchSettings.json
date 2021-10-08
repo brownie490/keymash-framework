@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SecurityService": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

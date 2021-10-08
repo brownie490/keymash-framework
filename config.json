@@ -1,0 +1,44 @@
+{
+  "Defaults": {
+
+    "timeout": 30,
+    "DateFormat": "ddMMyyyy"
+
+  },
+  "Reporting": {
+
+    "output": true,
+    "AddWatermark": true,
+    "WatermarkDateTimeFormat": "dd-MMM-yyyy HH:mm:ss",
+    "WatermarkFont": "Arial Bold",
+    "WatermarkFontSize": 20,
+    "WatermarkLocation": "bottom-right",
+    "AddTagsToWatermark": true,
+    "screenshotformat": "png",
+    "SlackURL": "",
+    "ReadOnlyFiles": true,
+    "ShowBrowser": true
+
+  },
+  "SeleniumHub": {
+
+    "URL": "http://localhost:4444/wd/hub"
+
+  },
+  "driver": {
+
+    "browser": "chrome",
+    "type": "remote",
+    "startmaximized": false,
+    "defaultwindowsize": "1920,1080",
+    "ignoreinvalidcerts": true,
+    "useragent": null
+
+  },
+  "TestPage": {
+
+    "URL": "http://keymash.co.uk/TestPage/"
+
+  }
+
+}
