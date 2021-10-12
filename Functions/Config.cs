@@ -12,6 +12,7 @@ namespace Automation
         public SeleniumHub seleniumHub { get; set; }
         public Driver driver { get; set; }
         public TestPage testPage { get; set; }
+        public Database database { get; set; }
 
         public static Config current;
 
@@ -91,6 +92,16 @@ namespace Automation
         public class TestPage
         {
             public string URL { get; set; }
+
+        }
+
+        public class Database
+        {
+            public string source { get; set; }
+            public string dbName { get; set; }
+            public bool integratedSecurity { get; set; }
+            public string userID { get; set; }
+            public string password { get; set; }
 
         }
 

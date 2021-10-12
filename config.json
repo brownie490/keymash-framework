@@ -39,6 +39,16 @@
 
     "URL": "http://keymash.co.uk/TestPage/"
 
+  },
+
+  "Database": {
+
+    "source": "",
+    "dbName": "",
+    "integratedSecurity": "",
+    "userID": "",
+    "password": ""
+
   }
 
 }

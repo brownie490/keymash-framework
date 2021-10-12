@@ -1,8 +1,11 @@
 ﻿using System;
 using System.IO;
-using System.Text;
 using System.Net;
+using System.Text;
+using System.Linq;
 using System.Diagnostics;
+using System.Collections.Generic;
+
 
 namespace Automation
 {
@@ -21,7 +24,9 @@ namespace Automation
             // If the directory doesn't exist, create it
             if (!Directory.Exists(DirName))
             {
+
                 Directory.CreateDirectory(DirName);
+            
             }
 
             // Ensure the file exits
@@ -41,12 +46,14 @@ namespace Automation
             // If the directory doesn't exist, create it
             if (Directory.Exists(DirName) && !Directory.Exists(NewDirName))
             {
+
                 Directory.Move(DirName, NewDirName);
 
                 // Ensure the directory exits
                 string Message = "The directory was not renamed.";
                 Check.IsFalse(Directory.Exists(DirName), Message);
                 Check.IsTrue(Directory.Exists(NewDirName), Message);
+
             }
             else
             {
@@ -82,7 +89,9 @@ namespace Automation
             }
             else
             {
-                Console.WriteLine("Couldn't copy " + DirName + " as either the source folder did not exist or the destination folder already exists");
+
+                Check.Fail("Couldn't copy " + DirName + " as either the source folder did not exist or the destination folder already exists");
+            
             }
 
         }
@@ -99,12 +108,15 @@ namespace Automation
             // If the directory doesn't exist, create it
             if (Directory.Exists(DirName) && !Directory.Exists(NewDirName))
             {
+
                 Directory.Move(DirName, NewDirName);
+
             }
             else
             {
 
-                Console.WriteLine("Couldn't create " + NewDirName + " as either the source folder did not exist or the destination folder already exists");
+                Check.Fail("Couldn't create " + NewDirName + " as either the source folder did not exist or the destination folder already exists");
+            
             }
 
         }
@@ -120,12 +132,33 @@ namespace Automation
             // If the directory exist, delete it
             if (Directory.Exists(DirName))
             {
+
                 Directory.Delete(DirName, true);
+
             }
             else
             {
+
                 Console.WriteLine("Directory " + DirName + " does not exist so nothing to delete.");
+
             }
+
+        }
+
+
+        /// <summary>
+        ///     Gets a list of files in the specified directory.
+        ///     Wildcards are support.
+        /// </summary>
+        /// <param name="DirName">The name of the directory to search in</param>
+        /// <param name="SearchPattern">Optional. If left blank, all files will be returned.</param>
+        public static List<FileInfo> ListFiles(string DirName, string SearchPattern = null)
+        {
+
+            DirectoryInfo directoryInfo = new DirectoryInfo(DirName);
+            List<FileInfo> files = directoryInfo.GetFiles((string.IsNullOrEmpty(SearchPattern) ? "*" : SearchPattern), SearchOption.AllDirectories).OrderBy(t => t.LastWriteTime).ToList();
+
+            return files;
 
         }
 
@@ -143,6 +176,7 @@ namespace Automation
             // Delete the existing file
             if (DeleteExisting && File.Exists(FileName))
             {
+
                 DeleteFile(FileName);
 
             }
@@ -150,7 +184,8 @@ namespace Automation
             // If the file does not exist, create it
             if (!File.Exists(FileName))
             {
-                var myFile = File.Create(FileName);
+
+                FileStream myFile = File.Create(FileName);
                 myFile.Close();
 
             }
@@ -208,17 +243,21 @@ namespace Automation
             // If the target path does not exist, create it
             if (!Directory.Exists(TargetPath))
             {
+
                 CreateDir(TargetPath);
+
             }
             File.Copy(Path.Combine(SourcePath, FileName), DestFile, true);
 
             if (Directory.Exists(SourcePath))
             {
+
                 string[] Files = Directory.GetFiles(SourcePath);
 
                 // Copy the Files and overwrite destination Files if they already exist. 
                 foreach (string CopyFile in Files)
                 {
+
                     // Use static Path methods to extract only the File name from the path.
                     FileName = Path.GetFileName(CopyFile);
                     DestFile = Path.Combine(TargetPath, FileName);
@@ -226,10 +265,13 @@ namespace Automation
                     Check.IsTrue(File.Exists(DestFile), "The file was not copied.");
 
                 }
+
             }
             else
             {
+
                 Check.Fail("Source path does not exist.");
+
             }
 
         }
