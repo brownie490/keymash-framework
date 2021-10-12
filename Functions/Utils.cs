@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Text;
 using System.Linq;
 using Newtonsoft.Json;
@@ -6,7 +7,7 @@ using HtmlAgilityPack;
 using System.Threading;
 using Newtonsoft.Json.Linq;
 using System.Globalization;
-
+using System.Collections.Generic;
 
 namespace Automation
 {
@@ -268,6 +269,21 @@ namespace Automation
             }
 
             return result.ToString();
+        }
+
+
+        /// <summary>
+        ///     Gets the name of the latest TestExecution.json file
+        /// </summary>
+        /// <returns>The name fo the latest TestExecution.json file</returns>
+        public static string GetLatestTestExecution()
+        {
+
+            List<FileInfo> files = Windows.ListFiles(@"..\bin\Debug\net5.0", "TestExecution*.json");
+
+            int count = files.Count;
+            return files[count - 1].ToString();
+
         }
 
     }
