@@ -2,22 +2,21 @@ image: mcr.microsoft.com/dotnet/sdk:5.0
 
 pipelines:
   default:
-    - parallel:
-      - step:
-          name: Setup Environment
-          services:
-            -  docker
-          caches:
-              - docker
-          script:
-            - docker-compose up
-      - step:
-          name: Build and Test
-          caches:
-            - dotnetcore
-          script:
-            - dotnet build KeyMashFramework.sln --configuration Debug
-            - dotnet test KeyMashFramework.sln
+    - step:
+        name: Setup Environment
+        services:
+          -  docker
+        caches:
+            - docker
+        script:
+          - docker-compose up
+    - step:
+        name: Build and Test
+        caches:
+          - dotnetcore
+        script:
+          - dotnet build KeyMashFramework.sln --configuration Debug
+          - dotnet test KeyMashFramework.sln
             
 definitions:
   services:
