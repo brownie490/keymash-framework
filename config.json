@@ -22,7 +22,7 @@
   },
   "SeleniumHub": {
 
-    "URL": "http://0.0.0.0:4444/wd/hub"
+    "URL": "http://localhost:4444/wd/hub"
 
   },
   "driver": {

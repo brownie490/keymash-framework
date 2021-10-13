@@ -6,13 +6,14 @@ pipelines:
         name: Setup Environment
         image: python:3.8.1
         services:
-          -  docker
+          - chrome
+          - firefox
+          - hub
         caches:
-            - docker
             - pip
         script:
             - pip install docker-compose
-            - docker-compose up -d
+            - docker-compose up
     - step:
         name: Build and Test
         caches:
@@ -23,5 +24,28 @@ pipelines:
             
 definitions:
   services:
-    docker:
-      memory: 3072
+      docker:
+        memory: 512
+      chrome:
+        image: selenium/node-chrome-debug
+        environment:
+          HUB_PORT_4444_TCP_ADDR: "localhost"
+          HUB_PORT_4444_TCP_PORT: "4444"
+          NODE_MAX_INSTANCE: "8"
+          NODE_MAX_SESSION: "8"
+          memory: "512"
+      firefox:
+        image: selenium/node-firefox-debug
+        environment:
+          DISPLAY: "88"
+          HUB_PORT_4444_TCP_ADDR: "localhost"
+          HUB_PORT_4444_TCP_PORT: "4444"
+          NODE_MAX_INSTANCE: "8"
+          NODE_MAX_SESSION: "8"
+          SE_OPTS: "-port 5556"
+          memory: "512"
+      hub:
+        image: selenium/hub
+        environment:
+          SE_OPTS: -host 127.0.0.1
+          memory: "512"
