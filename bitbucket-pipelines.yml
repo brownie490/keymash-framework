@@ -7,5 +7,5 @@ pipelines:
             - dotnetcore
         name: 'Build and Test'
         script:
-        - dotnet restore KeyMashFramework.sln
-        - dotnet build KeyMashFramework.sln
+        - dotnet restore KeyMashFramework.csproj
+        - dotnet build KeyMashFramework.csproj
