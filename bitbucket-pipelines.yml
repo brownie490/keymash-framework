@@ -4,9 +4,14 @@ pipelines:
   default:
     - parallel:
       - step:
+          name: Setup Environment
+          script:
+            - docker-compose pull
+            - docker-compose up
+      - step:
           name: Build and Test
           caches:
             - dotnetcore
           script:
-          - dotnet build KeyMashFramework.sln --configuration Debug
-          - dotnet test KeyMashFramework.csproj
+            - dotnet build KeyMashFramework.sln --configuration Debug
+            - dotnet test KeyMashFramework.sln
