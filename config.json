@@ -7,7 +7,7 @@
   },
   "Reporting": {
 
-    "output": true,
+    "output": false,
     "AddWatermark": true,
     "WatermarkDateTimeFormat": "dd-MMM-yyyy HH:mm:ss",
     "WatermarkFont": "Arial Bold",
@@ -28,7 +28,7 @@
   "driver": {
 
     "browser": "chrome",
-    "type": "local",
+    "type": "remote",
     "startmaximized": true,
     "defaultwindowsize": "1920,1080",
     "ignoreinvalidcerts": true,
@@ -45,7 +45,7 @@
 
     "source": "",
     "dbName": "",
-    "integratedSecurity": "",
+    "integratedSecurity": true,
     "userID": "",
     "password": ""
 

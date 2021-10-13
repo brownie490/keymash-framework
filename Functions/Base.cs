@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Remote;
@@ -50,11 +49,11 @@ namespace Automation
                         driver = Config.current.driver.type.ToUpper() == "REMOTE" ? NewRemoteFirefoxDriver() : NewFirefoxDriver();
                         break;
 
-                    case "EDGE":
+                    //case "EDGE":
 
-                        driver = NewEdgeDriver();
-                        //    driver = Config.current.driver.type.ToUpper() == "REMOTE" ? NewRemoteEdgeDriver() : NewEdgeDriver();
-                        break;
+                    //    driver = NewEdgeDriver();
+                    //    //    driver = Config.current.driver.type.ToUpper() == "REMOTE" ? NewRemoteEdgeDriver() : NewEdgeDriver();
+                    //    break;
 
                     default:
 
@@ -215,37 +214,37 @@ namespace Automation
         }
 
 
-        /// <summary>
-        ///     Sets up a new instance of a local EdgeDriver
-        /// </summary>
-        /// <returns>The new isntance of the local EdgeDriver</returns>
-        public static IWebDriver NewEdgeDriver()
-        {
+        ///// <summary>
+        /////     Sets up a new instance of a local EdgeDriver
+        ///// </summary>
+        ///// <returns>The new isntance of the local EdgeDriver</returns>
+        //public static IWebDriver NewEdgeDriver()
+        //{
 
-            IWebDriver driver;
+        //    IWebDriver driver;
 
-            // Launch Microsoft Edge (Chromium)
-            EdgeOptions edgeOptions = new EdgeOptions();
-            edgeOptions.UseChromium = true;
+        //    // Launch Microsoft Edge (Chromium)
+        //    EdgeOptions edgeOptions = new EdgeOptions();
+        //    edgeOptions.UseChromium = true;
 
-            // Maxmimize the screen if required
-            edgeOptions.AddArgument(Config.current.driver.startmaximized ? "--start-maximized" : "--window-size=" + Config.current.driver.defaultwindowsize);
+        //    // Maxmimize the screen if required
+        //    edgeOptions.AddArgument(Config.current.driver.startmaximized ? "--start-maximized" : "--window-size=" + Config.current.driver.defaultwindowsize);
 
-            // If we're using a specific user agent, add it as an argument
-            if (!string.IsNullOrEmpty(Config.current.driver.useragent))
-            {
+        //    // If we're using a specific user agent, add it as an argument
+        //    if (!string.IsNullOrEmpty(Config.current.driver.useragent))
+        //    {
 
-                edgeOptions.AddArgument("--user-agent=" + Config.current.driver.useragent);
+        //        edgeOptions.AddArgument("--user-agent=" + Config.current.driver.useragent);
 
-            }
+        //    }
 
-            // Ignore Certificate errors
-            edgeOptions.AcceptInsecureCertificates = Config.current.driver.ignoreinvalidcerts;
-            driver = new EdgeDriver(DriverPath, edgeOptions);
+        //    // Ignore Certificate errors
+        //    edgeOptions.AcceptInsecureCertificates = Config.current.driver.ignoreinvalidcerts;
+        //    driver = new EdgeDriver(DriverPath, edgeOptions);
 
-            return driver;
+        //    return driver;
 
-            }
+        //    }
 
 
             ///// <summary>
