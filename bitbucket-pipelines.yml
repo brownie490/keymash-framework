@@ -3,31 +3,15 @@ image: mcr.microsoft.com/dotnet/sdk:5.0
 pipelines:
   default:
     - step:
-        name: Setup Environment
-        image: python:3.8.1
-        services:
-          - chrome
-          - hub
-        caches:
-            - pip
-        script:
-          - echo "Done"
-    - step:
         name: Build and Test
+        services:
+          - selenium-chrome
         caches:
           - dotnetcore
         script:
-          - dotnet build KeyMashFramework.sln --configuration Debug
           - dotnet test KeyMashFramework.sln
             
 definitions:
-    services:
-        hub:
-          image: selenium/hub
-          environment:
-            BROWSER: chrome
-        chrome:
-          image: selenium/node-chrome
-          environment:
-            HUB_PORT_4444_TCP_ADDR: 127.0.0.1
-            HUB_PORT_4444_TCP_PORT: "4444"
+  services:
+    selenium-chrome:
+      image: selenium/standalone-chrome
