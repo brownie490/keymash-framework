@@ -1,15 +1,14 @@
 image: mcr.microsoft.com/dotnet/sdk:5.0
 
-definitions:
-  services:
-    docker:
-      memory: 512
-
 pipelines:
   default:
     - parallel:
       - step:
           name: Setup Environment
+          services:
+            -  docker
+          caches:
+              - docker
           script:
             - docker-compose up
       - step:
@@ -19,3 +18,8 @@ pipelines:
           script:
             - dotnet build KeyMashFramework.sln --configuration Debug
             - dotnet test KeyMashFramework.sln
+            
+definitions:
+  services:
+    docker:
+      memory: 3072
