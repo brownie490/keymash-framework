@@ -12,7 +12,7 @@ pipelines:
             - pip
         script:
             - pip install docker-compose
-            - docker-compose up
+            - docker-compose up -d
     - step:
         name: Build and Test
         caches:
