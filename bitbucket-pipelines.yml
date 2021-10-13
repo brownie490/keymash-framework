@@ -5,13 +5,22 @@ pipelines:
     - step:
         name: Build and Test
         services:
-          - selenium-chrome
+              - hub
+              - chrome
         caches:
           - dotnetcore
         script:
+          - dotnet build KeyMashFramework.sln
           - dotnet test KeyMashFramework.sln
             
 definitions:
   services:
-    selenium-chrome:
-      image: selenium/standalone-chrome
+    hub:
+      image: selenium/hub
+      environment:
+        BROWSER: chrome
+    chrome:
+      image: selenium/node-chrome
+      environment:
+        HUB_PORT_4444_TCP_ADDR: 127.0.0.1
+        HUB_PORT_4444_TCP_PORT: "4444"
