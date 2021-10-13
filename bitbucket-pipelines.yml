@@ -9,3 +9,4 @@ pipelines:
             - dotnetcore
           script:
           - dotnet build KeyMashFramework.sln --configuration Debug
+          - dotnet test KeyMashFramework.csproj

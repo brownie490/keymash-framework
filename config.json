@@ -45,7 +45,7 @@
 
     "source": "",
     "dbName": "",
-    "integratedSecurity": "",
+    "integratedSecurity": true,
     "userID": "",
     "password": ""
 
