@@ -1,12 +1,16 @@
 image: mcr.microsoft.com/dotnet/sdk:5.0
 
+definitions:
+  services:
+    docker:
+      memory: 512
+
 pipelines:
   default:
     - parallel:
       - step:
           name: Setup Environment
           script:
-            - docker-compose pull
             - docker-compose up
       - step:
           name: Build and Test
