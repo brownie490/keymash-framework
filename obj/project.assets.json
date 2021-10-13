@@ -770,12 +770,6 @@
           "build/Selenium.WebDriver.GeckoDriver.targets": {}
         }
       },
-      "Selenium.WebDriver.MSEdgeDriver/94.0.992.38": {
-        "type": "package",
-        "build": {
-          "build/Selenium.WebDriver.MSEdgeDriver.targets": {}
-        }
-      },
       "SpecFlow/3.9.22": {
         "type": "package",
         "dependencies": {
@@ -3472,22 +3466,6 @@
         "nupkg-icon.png",
         "selenium.webdriver.geckodriver.0.30.0.nupkg.sha512",
         "selenium.webdriver.geckodriver.nuspec"
-      ]
-    },
-    "Selenium.WebDriver.MSEdgeDriver/94.0.992.38": {
-      "sha512": "NtLRppiEeCz1JhhJI9IuFCtFYt+GTgA+VGnpM8scQBBFA30NgZXLuyH50sWsWe9sdEjg3iTSCPlZzKpiitzINA==",
-      "type": "package",
-      "path": "selenium.webdriver.msedgedriver/94.0.992.38",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/Selenium.WebDriver.MSEdgeDriver.targets",
-        "driver/mac64/msedgedriver",
-        "driver/win32/msedgedriver.exe",
-        "driver/win64/msedgedriver.exe",
-        "license/license.txt",
-        "selenium.webdriver.msedgedriver.94.0.992.38.nupkg.sha512",
-        "selenium.webdriver.msedgedriver.nuspec"
       ]
     },
     "SpecFlow/3.9.22": {
@@ -8261,7 +8239,6 @@
       "Otp.Net >= 1.2.2",
       "Selenium.Support >= 4.0.0-rc2",
       "Selenium.WebDriver.GeckoDriver >= 0.30.0",
-      "Selenium.WebDriver.MSEdgeDriver >= 94.0.992.38",
       "Selenium.Webdriver.ChromeDriver >= 94.0.4606.6100",
       "SpecFlow >= 3.9.22",
       "SpecFlow.Plus.LivingDocPlugin >= 3.9.57",
@@ -8354,10 +8331,6 @@
           "Selenium.WebDriver.GeckoDriver": {
             "target": "Package",
             "version": "[0.30.0, )"
-          },
-          "Selenium.WebDriver.MSEdgeDriver": {
-            "target": "Package",
-            "version": "[94.0.992.38, )"
           },
           "Selenium.Webdriver.ChromeDriver": {
             "target": "Package",
