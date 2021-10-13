@@ -1,11 +1,11 @@
-image: mcr.microsoft.com/dotnet/core/sdk:5.0
+image: mcr.microsoft.com/dotnet/sdk:5.0
 
 pipelines:
   default:
-    - step:
-        caches: 
+    - parallel:
+      - step:
+          name: Build and Test
+          caches:
             - dotnetcore
-        name: 'Build and Test'
-        script:
-        - dotnet restore KeyMashFramework.csproj
-        - dotnet build KeyMashFramework.csproj
+          script:
+          - dotnet build KeyMashFramework.sln --configuration Debug
