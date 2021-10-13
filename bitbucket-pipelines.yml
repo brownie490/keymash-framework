@@ -4,12 +4,15 @@ pipelines:
   default:
     - step:
         name: Setup Environment
+        image: python:3.8.1
         services:
           -  docker
         caches:
             - docker
+            - pip
         script:
-          - docker-compose up
+            - pip install docker-compose
+            - docker-compose up
     - step:
         name: Build and Test
         caches:
