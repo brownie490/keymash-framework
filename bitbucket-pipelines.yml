@@ -15,7 +15,7 @@ pipelines:
           script:
               - pip install docker-compose
               - docker-compose up -d
-              - dotnet build KeyMashFramework.sln --configuration Debug
+              - dotnet build KeyMashFramework.sln
               - dotnet test KeyMashFramework.sln
             
 definitions:
