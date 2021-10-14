@@ -7,6 +7,7 @@ pipelines:
           services:
           - selenium-standalone
           script:
+            - dotnet build KeyMashFramework.sln
             - dotnet test KeyMashFramework.sln
    
 definitions:
