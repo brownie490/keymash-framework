@@ -5,7 +5,8 @@ pipelines:
           image: mcr.microsoft.com/dotnet/sdk:5.0
           name: Build and Test
           services:
-          - chrome
+            - mono
+            - chrome
           script:
             - dotnet build KeyMashFramework.sln
             - dotnet test KeyMashFramework.sln
@@ -14,3 +15,5 @@ definitions:
   services:
     chrome:
       image: selenium/standalone-chrome
+    mono:
+      image: pipeline-mono
