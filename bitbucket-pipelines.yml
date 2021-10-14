@@ -16,4 +16,4 @@ definitions:
     chrome:
       image: selenium/standalone-chrome
     mono:
-      image: pipeline-mono
+      image: mono
