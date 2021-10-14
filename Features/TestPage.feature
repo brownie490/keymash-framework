@@ -4,7 +4,7 @@
 	I want to practice my Automation skils on a Test Page
 	So that I can improve my skils
 
-	@Web
+	@Web @SmokeTest
 	Scenario: 1. Complete the form
 		Given I'm on the Test Page
 		When I complete the form with all the required fields
