@@ -4,7 +4,7 @@ pipelines:
           image: mcr.microsoft.com/dotnet/sdk:5.0
           name: Build and Test
           services:
-            - chrome
+            - hub
           script:
             - dotnet build KeyMashFramework.sln
             - dotnet test KeyMashFramework.sln   
@@ -19,7 +19,10 @@ pipelines:
           - dotnet build KeyMashFramework.sln
           - dotnet test KeyMashFramework.sln --filter TestCategory=SmokeTest
 
+
 definitions:
-  services:
+  services:    
+    hub:
+      image: selenium/hub
     chrome:
-      image: selenium/standalone-chrome
+      image: selenium/node-chrome
