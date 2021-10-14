@@ -10,7 +10,7 @@ pipelines:
         - dotnet build KeyMashFramework.sln
         - dotnet test KeyMashFramework.sln --filter TestCategory=SmokeTest
 
-    default:
+    develop:
       - step:
           image: mcr.microsoft.com/dotnet/sdk:5.0
           name: Build and Test
