@@ -2,6 +2,8 @@
 <TestProfile xmlns="http://www.specflow.org/schemas/plus/TestProfile/1.5">
   <Settings projectName="Identity Provider" />
   <Execution stopAfterFailures="0" testThreadCount="1" testSchedulingMode="Sequential" />
+  <Settings name="Disable Reports" projectName="SpecRun Test Project" />
+  <Report disable="true"/>
   <!-- For collecting by a SpecRun server update and enable the following element. For using the 
       collected statistics, set testSchedulingMode="Adaptive" attribute on the <Execution> element.
     <Server serverUrl="http://specrunserver:6365" publishResults="true" />
