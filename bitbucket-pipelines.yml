@@ -5,6 +5,7 @@ pipelines:
           name: Build and Test
           services:
             - hub
+            - chrome
           script:
             - dotnet build KeyMashFramework.sln
             - dotnet test KeyMashFramework.sln   
