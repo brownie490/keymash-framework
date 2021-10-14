@@ -1,16 +1,5 @@
 pipelines:
-  branches:
-    master:
-    - step:
-        image: mcr.microsoft.com/dotnet/sdk:5.0
-        name: Build and Test
-        services:
-        - chrome
-        script:
-        - dotnet build KeyMashFramework.sln
-        - dotnet test KeyMashFramework.sln --filter TestCategory=SmokeTest
-
-    develop:
+    default:
       - step:
           image: mcr.microsoft.com/dotnet/sdk:5.0
           name: Build and Test
@@ -18,7 +7,17 @@ pipelines:
             - chrome
           script:
             - dotnet build KeyMashFramework.sln
-            - dotnet test KeyMashFramework.sln            
+            - dotnet test KeyMashFramework.sln   
+    branches:
+      master:
+      - step:
+          image: mcr.microsoft.com/dotnet/sdk:5.0
+          name: Build and Test
+          services:
+          - chrome
+          script:
+          - dotnet build KeyMashFramework.sln
+          - dotnet test KeyMashFramework.sln --filter TestCategory=SmokeTest
 
 definitions:
   services:
