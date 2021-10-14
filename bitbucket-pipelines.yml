@@ -3,5 +3,13 @@ pipelines:
     develop:
       - step:
           image: mcr.microsoft.com/dotnet/sdk:5.0
+          name: Build and Test
+          services:
+          - selenium-standalone
           script:
-              - dotnet build KeyMashFramework.sln
+            - dotnet test KeyMashFramework.sln
+   
+definitions:
+   services:
+     selenium-standalone:
+       image: selenium/standalone-chrome:latest
