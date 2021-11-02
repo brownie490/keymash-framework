@@ -26,8 +26,8 @@
     <PackageReference Include="Otp.Net" Version="1.2.2" />
     <PackageReference Include="selenium.Firefox.Webdriver" Version="0.27.0" />
     <PackageReference Include="Selenium.Support" Version="4.0.0-rc2" />
-    <PackageReference Include="selenium.webdriver" Version="4.0.0-rc2" />
-    <PackageReference Include="Selenium.Webdriver.ChromeDriver" Version="94.0.4606.6100" />
+    <PackageReference Include="selenium.webdriver" Version="4.0.1" />
+    <PackageReference Include="Selenium.Webdriver.ChromeDriver" Version="95.0.4638.5400" />
     <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.30.0" />
     <PackageReference Include="SpecFlow" Version="3.9.22" />
     <PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.57" />

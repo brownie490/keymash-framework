@@ -74,28 +74,10 @@ namespace Automation
         public static IWebDriver NewChromeDriver()
         {
 
-            IWebDriver driver;
-
             ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions = SetupChromeOptions(chromeOptions);
 
-            // Maxmimize the screen if required
-            chromeOptions.AddArgument(Config.current.driver.startmaximized ? "--start-maximized" : "--window-size=" + Config.current.driver.defaultwindowsize);
-
-            // If we're using a specific user agent, add it as an argument
-            if (!string.IsNullOrEmpty(Config.current.driver.useragent))
-            {
-
-                chromeOptions.AddArgument("--user-agent=" + Config.current.driver.useragent);
-
-            }
-
-            // Ignore Certificate errors
-            chromeOptions.AcceptInsecureCertificates = Config.current.driver.ignoreinvalidcerts;
-
-            // Launch the new driver
-            driver = new ChromeDriver(DriverPath, chromeOptions);
-
-            return driver;
+            return new ChromeDriver(DriverPath, chromeOptions);
 
         }
 
@@ -107,35 +89,71 @@ namespace Automation
         public static RemoteWebDriver NewRemoteChromeDriver()
         {
 
-            RemoteWebDriver driver;
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions = SetupChromeOptions(chromeOptions);
+            Uri GRID = new Uri(Config.current.seleniumHub.URL);
 
-            ChromeOptions chromeOptions = new ChromeOptions
+            return new RemoteWebDriver(GRID, chromeOptions.ToCapabilities());
+
+        }
+
+
+        /// <summary>
+        ///     Gets all the ChromeOptions from the config and returns the settings back
+        /// </summary>
+        /// <returns>The ChromeOptions to use by the driver.</returns>
+        public static ChromeOptions SetupChromeOptions(ChromeOptions chromeOptions)
+        {
+
+            if (Config.current.driver.type.ToUpper() == "REMOTE")
             {
 
-                BrowserVersion = "",
-                PlatformName = "LINUX",
+                ChromeOptions tmpChromeOptions = new ChromeOptions
+                {
+                    BrowserVersion = "",
+                    PlatformName = "LINUX",
+                };
 
-            };
+                chromeOptions = tmpChromeOptions;
 
-            // Maxmimize the screen if required
-            chromeOptions.AddArgument("--start-maximized");
+                // Maxmimize the screen if required
+                chromeOptions.AddArgument("--start-maximized");
 
-            // If we're using a specific user agent, add it as an argument
-            if (!string.IsNullOrEmpty(Config.current.driver.useragent))
+            }
+            else
+            {
+
+                // Maxmimize the screen if required
+                chromeOptions.AddArgument(Config.current.driver.startmaximized ? "--start-maximized" : "--window-size=" + Config.current.driver.WindowXSize + ", " + Config.current.driver.WindowYSize);
+
+            }
+
+            // If we're emulating a specified device or using a specific user agent, add them as options
+            if (!string.IsNullOrEmpty(Config.current.driver.EmulateDevice))
+            {
+
+                chromeOptions.EnableMobileEmulation(Config.current.driver.EmulateDevice);
+
+            }
+            else if (!string.IsNullOrEmpty(Config.current.driver.useragent))
             {
 
                 chromeOptions.AddArgument("--user-agent=" + Config.current.driver.useragent);
 
             }
 
+            // Run the test in Headless mode if required
+            if (Config.current.driver.Headless)
+            {
+
+                chromeOptions.AddArgument("headless");
+
+            }
+
             // Ignore Certificate errors
             chromeOptions.AcceptInsecureCertificates = Config.current.driver.ignoreinvalidcerts;
 
-            // Launch the new driver
-            Uri GRID = new Uri(Config.current.seleniumHub.URL);
-            driver = new RemoteWebDriver(GRID, chromeOptions.ToCapabilities());
-
-            return driver;
+            return chromeOptions;
 
         }
 
@@ -147,32 +165,14 @@ namespace Automation
         public static IWebDriver NewFirefoxDriver()
         {
 
-            IWebDriver driver;
-
             FirefoxOptions firefoxOptions = new FirefoxOptions();
+            firefoxOptions = SetupFirefoxOptions(firefoxOptions);
 
             // Set the Gecko Driver Host. This makes it run quicker
             FirefoxDriverService firefoxService = FirefoxDriverService.CreateDefaultService(DriverPath);
             firefoxService.Host = "::1";
 
-            // Maxmimize the screen if required
-            firefoxOptions.AddArgument(Config.current.driver.startmaximized ? "--start-maximized" : "--window-size=" + Config.current.driver.defaultwindowsize);
-
-            // If we're using a specific user agent, add it as an argument
-            if (!string.IsNullOrEmpty(Config.current.driver.useragent))
-            {
-
-                firefoxOptions.AddArgument("--user-agent=" + Config.current.driver.useragent);
-
-            }
-
-            // Ignore Certificate errors
-            firefoxOptions.AcceptInsecureCertificates = Config.current.driver.ignoreinvalidcerts;
-
-            // Launch the new driver
-            driver = new FirefoxDriver(firefoxService, firefoxOptions);
-
-            return driver;
+            return new FirefoxDriver(firefoxService, firefoxOptions);
 
         }
 
@@ -184,20 +184,45 @@ namespace Automation
         public static RemoteWebDriver NewRemoteFirefoxDriver()
         {
 
-            RemoteWebDriver driver;
+            FirefoxOptions firefoxOptions = new FirefoxOptions();
+            firefoxOptions = SetupFirefoxOptions(firefoxOptions);
+            Uri GRID = new Uri(Config.current.seleniumHub.URL);
 
-            FirefoxOptions firefoxOptions = new FirefoxOptions
+            return new RemoteWebDriver(GRID, firefoxOptions.ToCapabilities());
+
+        }
+
+
+        /// <summary>
+        ///     Gets all the FirefoxOptions from the config and returns the settings back
+        /// </summary>
+        /// <returns>The FirefoxOptions to use by the driver.</returns>
+        public static FirefoxOptions SetupFirefoxOptions(FirefoxOptions firefoxOptions)
+        {
+
+            if (Config.current.driver.type.ToUpper() == "REMOTE")
             {
 
-                BrowserVersion = "",
-                PlatformName = "LINUX",
+                FirefoxOptions tmpfirefoxOptions = new FirefoxOptions
+                {
 
-            };
+                    BrowserVersion = "",
+                    PlatformName = "LINUX",
 
-            // Maxmimize the screen if required
-            firefoxOptions.AddArgument(Config.current.driver.startmaximized ? "--start-maximized" : "--window-size=" + Config.current.driver.defaultwindowsize);
+                };
 
-            // If we're using a specific user agent, add it as an argument
+                firefoxOptions = tmpfirefoxOptions;
+                firefoxOptions.AddArgument("--start-maximized");
+            }
+            else
+            {
+
+                // Maxmimize the screen if required
+                firefoxOptions.AddArgument(Config.current.driver.startmaximized ? "--start-maximized" : "--window-size=" + Config.current.driver.WindowXSize + ", " + Config.current.driver.WindowYSize);
+            
+            }
+
+            // If we're using a specific user agent, add them as options
             if (!string.IsNullOrEmpty(Config.current.driver.useragent))
             {
 
@@ -205,11 +230,18 @@ namespace Automation
 
             }
 
-            // Launch the new driver
-            Uri GRID = new Uri(Config.current.seleniumHub.URL);
-            driver = new RemoteWebDriver(GRID, firefoxOptions.ToCapabilities());
+            // Run the test in Headless mode if required
+            if (Config.current.driver.Headless)
+            {
 
-            return driver;
+                firefoxOptions.AddArgument("headless");
+            
+            }
+
+            // Ignore Certificate errors
+            firefoxOptions.AcceptInsecureCertificates = Config.current.driver.ignoreinvalidcerts;
+            
+            return firefoxOptions;
 
         }
 
@@ -247,37 +279,37 @@ namespace Automation
         //    }
 
 
-            ///// <summary>
-            /////     Sets up a new instance of a remote EdgeDriver
-            ///// </summary>
-            ///// <returns>The new isntance of the remote EdgeDriver</returns>
-            //public static RemoteWebDriver NewRemoteEdgeDriver()
-            //{
-            //    RemoteWebDriver driver;
+        ///// <summary>
+        /////     Sets up a new instance of a remote EdgeDriver
+        ///// </summary>
+        ///// <returns>The new isntance of the remote EdgeDriver</returns>
+        //public static RemoteWebDriver NewRemoteEdgeDriver()
+        //{
+        //    RemoteWebDriver driver;
 
-            //    var edgeOptions = new EdgeOptions
-            //    {
+        //    var edgeOptions = new EdgeOptions
+        //    {
 
-            //        BrowserVersion = "",
-            //        PlatformName = "LINUX",
+        //        BrowserVersion = "",
+        //        PlatformName = "LINUX",
 
-            //    };
+        //    };
 
-            //    // Maxmimize the screen if required
-            //    edgeOptions.AddArgument(Config.current.driver.startmaximized ? "--start-maximized" : "--window-size=" + Config.current.driver.defaultwindowsize);
+        //    // Maxmimize the screen if required
+        //    edgeOptions.AddArgument(Config.current.driver.startmaximized ? "--start-maximized" : "--window-size=" + Config.current.driver.defaultwindowsize);
 
-            //    // Launch the new driver
-            //    driver = new RemoteWebDriver(GRID, edgeOptions.ToCapabilities());
+        //    // Launch the new driver
+        //    driver = new RemoteWebDriver(GRID, edgeOptions.ToCapabilities());
 
-            //    return driver;
+        //    return driver;
 
-            //}
+        //}
 
 
-            /// <summary>
-            ///     Tears down the current WebDriver
-            /// </summary>
-            public static void TearDownDriver()
+        /// <summary>
+        ///     Tears down the current WebDriver
+        /// </summary>
+        public static void TearDownDriver()
         {
 
             // If the driver is still initialized

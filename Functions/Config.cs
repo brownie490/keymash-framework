@@ -82,9 +82,12 @@ namespace Automation
         {
             public string browser { get; set; }
             public string type { get; set; }
+            public bool Headless { get; set; }
             public bool startmaximized { get; set; }
-            public string defaultwindowsize { get; set; }            
+            public int WindowXSize { get; set; }
+            public int WindowYSize { get; set; }
             public bool ignoreinvalidcerts { get; set; }
+            public string EmulateDevice { get; set; }
             public string useragent { get; set; }
 
         }

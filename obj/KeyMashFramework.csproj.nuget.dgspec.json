@@ -83,7 +83,7 @@
             },
             "Selenium.Webdriver.ChromeDriver": {
               "target": "Package",
-              "version": "[94.0.4606.6100, )"
+              "version": "[95.0.4638.5400, )"
             },
             "SpecFlow": {
               "target": "Package",
@@ -111,7 +111,7 @@
             },
             "selenium.webdriver": {
               "target": "Package",
-              "version": "[4.0.0-rc2, )"
+              "version": "[4.0.1, )"
             },
             "system.drawing.common": {
               "target": "Package",

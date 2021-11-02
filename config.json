@@ -28,11 +28,14 @@
   "driver": {
 
     "browser": "chrome",
-    "type": "remote",
-    "startmaximized": true,
-    "defaultwindowsize": "1920,1080",
+    "type": "local",
+    "Headless": true,
+    "startmaximized": false,
+    "WindowXSize": 1920,
+    "WindowYSize": 1080,
     "ignoreinvalidcerts": true,
-    "useragent": null
+    "EmulateDevice": "",
+    "useragent": ""
 
   },
   "TestPage": {
