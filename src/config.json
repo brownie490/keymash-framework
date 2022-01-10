@@ -28,7 +28,7 @@
   "driver": {
 
     "browser": "chrome",
-    "type": "local",
+    "type": "remote",
     "Headless": true,
     "startmaximized": false,
     "WindowXSize": 1920,
