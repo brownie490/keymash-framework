@@ -6,8 +6,8 @@ pipelines:
           services:
             - chrome
           script:
-            - dotnet build KeyMashFramework.sln
-            - dotnet test KeyMashFramework.sln   
+            - dotnet build src/KeyMashFramework.sln
+            - dotnet test src/KeyMashFramework.sln   
     branches:
       master:
       - step:
@@ -16,8 +16,8 @@ pipelines:
           services:
           - chrome
           script:
-              - dotnet build KeyMashFramework.sln
-              - dotnet test KeyMashFramework.sln --filter TestCategory=SmokeTest
+              - dotnet build src/KeyMashFramework.sln
+              - dotnet test src/KeyMashFramework.sln --filter TestCategory=SmokeTest
          
 definitions:
   services:
