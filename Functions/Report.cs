@@ -7,7 +7,7 @@ using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 using Newtonsoft.Json.Linq;
 using System.Drawing.Imaging;
-
+using TechTalk.SpecFlow.Infrastructure;
 
 namespace Automation
 {
@@ -22,13 +22,16 @@ namespace Automation
         ///     the FileName will be generated from the scenario name.
         ///     If not specified, a random FileName will be generated.
         /// </param>
-        public static void Screenshot(ScenarioContext scenarioContext = null)
+        /// <param name="specFlowOutputHelper">Optional: This will help attach the evidence to the step defintion.
+        /// If null, it will not attach it.
+        /// </param>
+        public static void Screenshot(ScenarioContext scenarioContext = null, ISpecFlowOutputHelper specFlowOutputHelper = null)
         {
 
             // If output is switched on in the config file, create the file
             if (Config.current.reporting.output)
             {
-                
+
                 string FileName = GenerateFileName("." + Config.current.reporting.screenshotformat.ToLower(), scenarioContext);
 
 
@@ -55,10 +58,19 @@ namespace Automation
 
                     Windows.MakeFileReadOnly(FileName);
 
-                }                
+                }
 
                 // Ensure the screenshot has been created
                 Check.IsTrue(File.Exists(FileName), "The screenshot was not saved successfully. FileName: " + FileName);
+
+                // Add the image to the LivingDoc if required
+                if (specFlowOutputHelper != null)
+                {
+
+                    specFlowOutputHelper.WriteLine("Test Evidence:");
+                    specFlowOutputHelper.AddAttachment(FileName);
+
+                }
 
             }
 
@@ -217,7 +229,10 @@ namespace Automation
         ///     the FileName will be generated from the scenario name.
         ///     If not specified, a random FileName will be generated.
         /// </param>
-        public static void OutputJson(string Json, ScenarioContext scenarioContext = null)
+        /// <param name="specFlowOutputHelper">Optional: This will help attach the evidence to the step defintion.
+        /// If null, it will not attach it.
+        /// </param>
+        public static void OutputJson(string Json, ScenarioContext scenarioContext = null, ISpecFlowOutputHelper specFlowOutputHelper = null)
         {
 
             // If output is switched on in the config file, create the file
@@ -260,6 +275,14 @@ namespace Automation
                 // Ensure the file has been created
                 Check.IsTrue(File.Exists(FileName), "The screenshot was not saved successfully. FileName: " + FileName);
 
+                // Add the Json to the LivingDoc if required
+                if (specFlowOutputHelper != null)
+                {
+
+                    specFlowOutputHelper.WriteLine("Test Evidence:");
+                    specFlowOutputHelper.WriteLine(Windows.ReadFile(FileName));
+
+                }
             }        
 
         }
@@ -274,7 +297,10 @@ namespace Automation
         ///     the FileName will be generated from the scenario name.
         ///     If not specified, a random FileName will be generated.
         /// </param>
-        public static void OutputHTML(string HTML, ScenarioContext scenarioContext = null)
+        /// <param name="specFlowOutputHelper">Optional: This will help attach the evidence to the step defintion.
+        /// If null, it will not attach it.
+        /// </param>
+        public static void OutputHTML(string HTML, ScenarioContext scenarioContext = null, ISpecFlowOutputHelper specFlowOutputHelper = null)
         {
 
             // If output is switched on in the config file, create the file
@@ -314,6 +340,15 @@ namespace Automation
 
                 // Ensure the file has been created
                 Check.IsTrue(File.Exists(FileName), "The HTML file was not saved successfully. FileName: " + FileName);
+
+                // Add the link to the LivingDoc if required
+                if (specFlowOutputHelper != null)
+                {
+
+                    specFlowOutputHelper.WriteLine("Test Evidence:");
+                    specFlowOutputHelper.AddAttachment(FileName);
+
+                }
 
             }
 

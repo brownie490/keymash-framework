@@ -1,4 +1,5 @@
 ﻿using System;
+using OpenQA.Selenium;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Automation
@@ -6,6 +7,20 @@ namespace Automation
 
     class Check
     {
+
+
+        /// <summary>
+        ///     Ensures the given element is displayed
+        /// </summary>
+        /// <param name="WebElement">The element to check</param>
+        public static void ElementDisplayed(IWebElement WebElement)
+        {
+
+            Web.WaitForElement(WebElement);
+            IsTrue(Web.IsElementDisplayed(WebElement));
+
+        }
+
 
         /// <summary>
         ///     Ensures the given value is true and throws and exception if not
@@ -57,6 +72,30 @@ namespace Automation
             Assert.AreNotEqual(NotExpected, Actual);
 
         }
+
+
+  //      /// <summary>
+  //      ///     Ensures the given value is null
+  //      /// </summary>
+  //      /// <param name="Value">The value we expecting to be null</param>
+  //      public static void IsNull(dynamic Value)
+		//{
+
+  //          Assert.IsNull(Value);
+
+		//}
+
+
+  //      /// <summary>
+  //      ///     Ensures the given value is not null
+  //      /// </summary>
+  //      /// <param name="Value">The value we are not expecting to be null</param>
+  //      public static void IsNotNull(dynamic Value)
+  //      {
+
+  //          Assert.IsNotNull(Value);
+
+  //      }
 
 
         /// <summary>
@@ -140,7 +179,7 @@ namespace Automation
         /// </summary>
         /// <param name="Value">The value to check</param>
         /// <param name="Message">Optional. The custom message to display if the value is not null or empty.</param>
-        public static void IsNullOrEmpty(string Value, string Message = null)
+        public static void IsNullOrEmpty(dynamic Value, string Message = null)
         {
 
             IsTrue(string.IsNullOrEmpty(Value), Message);
@@ -153,7 +192,7 @@ namespace Automation
         /// </summary>
         /// <param name="Value">The value to check</param>
         /// <param name="Message">Optional. The custom message to display if the value is null or empty.</param>
-        public static void IsNotNullOrEmpty(string Value, string Message = null)
+        public static void IsNotNullOrEmpty(dynamic Value, string Message = null)
         {
 
             IsFalse(string.IsNullOrEmpty(Value));

@@ -1,4 +1,5 @@
 ﻿using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Infrastructure;
 
 namespace Automation
 {
@@ -7,11 +8,13 @@ namespace Automation
     {
 
         private readonly ScenarioContext _scenarioContext;
+        private readonly ISpecFlowOutputHelper _specFlowOutputHelper;
 
-        public TestPageSteps(ScenarioContext scenarioContext)
+        public TestPageSteps(ScenarioContext scenarioContext, ISpecFlowOutputHelper outputHelper)
         {
 
             _scenarioContext = scenarioContext;
+            _specFlowOutputHelper = outputHelper;
 
         }
 
@@ -37,7 +40,7 @@ namespace Automation
             Web.Type(Utils.RandomString(5) + "@" + Utils.RandomString(5) + ".com", testPage.Email);
             Web.Type("http://" + Utils.RandomString(5) + ".com", testPage.Website);
             Web.Type(Utils.LoremIpsum(10, 50, 1, 2, 1), testPage.Message);
-            Report.Screenshot(_scenarioContext);
+            Report.Screenshot(_scenarioContext, _specFlowOutputHelper);
 
         }
 
@@ -111,7 +114,7 @@ namespace Automation
 
             }
 
-            Report.Screenshot(_scenarioContext);
+            Report.Screenshot(_scenarioContext, _specFlowOutputHelper);
 
         }
 
@@ -175,7 +178,7 @@ namespace Automation
             TestPage testPage = new TestPage(driver);
             Web.WaitForElement(testPage.FormSubmittedTextLocation);
             Check.AreEqual(testPage.FormSubmittedText, testPage.FormSubmittedTextLocation.Text);
-            Report.Screenshot(_scenarioContext);
+            Report.Screenshot(_scenarioContext, _specFlowOutputHelper);
 
         }
 
@@ -189,7 +192,7 @@ namespace Automation
             Check.IsTrue(Web.IsElementDisplayed(testPage.Link1));
             Check.IsTrue(Web.IsElementDisplayed(testPage.Link2));
             Check.IsTrue(Web.IsElementDisplayed(testPage.Link3));
-            Report.Screenshot(_scenarioContext);
+            Report.Screenshot(_scenarioContext, _specFlowOutputHelper);
 
         }
 
@@ -204,7 +207,7 @@ namespace Automation
             testPage.EmailErrorDisplayed();
             testPage.WebsiteErrorDisplayed();
             testPage.MessageErrorDisplayed();
-            Report.Screenshot(_scenarioContext);
+            Report.Screenshot(_scenarioContext, _specFlowOutputHelper);
 
         }
 
@@ -244,7 +247,7 @@ namespace Automation
 
             }
 
-            Report.Screenshot(_scenarioContext);
+            Report.Screenshot(_scenarioContext, _specFlowOutputHelper);
 
         }
 

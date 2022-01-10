@@ -746,7 +746,7 @@
           "lib/net5.0/WebDriver.Support.dll": {}
         }
       },
-      "Selenium.WebDriver/4.0.1": {
+      "Selenium.WebDriver/4.1.0": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "12.0.3"
@@ -758,7 +758,7 @@
           "lib/net5.0/WebDriver.dll": {}
         }
       },
-      "Selenium.WebDriver.ChromeDriver/95.0.4638.5400": {
+      "Selenium.WebDriver.ChromeDriver/96.0.4664.4500": {
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.ChromeDriver.targets": {}
@@ -768,6 +768,12 @@
         "type": "package",
         "build": {
           "build/Selenium.WebDriver.GeckoDriver.targets": {}
+        }
+      },
+      "Selenium.WebDriver.MSEdgeDriver/94.0.992.38": {
+        "type": "package",
+        "build": {
+          "build/Selenium.WebDriver.MSEdgeDriver.targets": {}
         }
       },
       "SpecFlow/3.9.22": {
@@ -3412,10 +3418,10 @@
         "selenium.support.nuspec"
       ]
     },
-    "Selenium.WebDriver/4.0.1": {
-      "sha512": "givS6L7wz4QupkyaNN7FwEl4trOHg1vfrSYmG0bGB3+QRPsDNcWUsbC70r6nB5JfbhNrKjZDPspAt0MYAB78Ig==",
+    "Selenium.WebDriver/4.1.0": {
+      "sha512": "d4smisz4a/wJCM2TzkKTl+BLfvZUTvaobhKElDfCVZlvY8ThsC8VAoBNWTlg1H/GGzIP//yVGko/W0FILTgkYA==",
       "type": "package",
-      "path": "selenium.webdriver/4.0.1",
+      "path": "selenium.webdriver/4.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3427,14 +3433,14 @@
         "lib/net5.0/WebDriver.dll",
         "lib/netstandard2.0/WebDriver.dll",
         "lib/netstandard2.1/WebDriver.dll",
-        "selenium.webdriver.4.0.1.nupkg.sha512",
+        "selenium.webdriver.4.1.0.nupkg.sha512",
         "selenium.webdriver.nuspec"
       ]
     },
-    "Selenium.WebDriver.ChromeDriver/95.0.4638.5400": {
-      "sha512": "v2mGsXpp1OdGINGwDC9qZWZcVyfFya4Bh6JmA5Jg6KuLLlOmArpPWT7+VvNCLC0LVjGcvJ96V9ManQa8Xcffeg==",
+    "Selenium.WebDriver.ChromeDriver/96.0.4664.4500": {
+      "sha512": "7bH+2/bX4IqPXxnMsbD820pCb1DFLeESIbjpUL/Zgq5wfKJHTxtknrQ1wnlMJmWtbpoNcj6Zck7OfoIVstl3zQ==",
       "type": "package",
-      "path": "selenium.webdriver.chromedriver/95.0.4638.5400",
+      "path": "selenium.webdriver.chromedriver/96.0.4664.4500",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3445,7 +3451,7 @@
         "driver/mac64/chromedriver",
         "driver/win32/chromedriver.exe",
         "nupkg-icon.png",
-        "selenium.webdriver.chromedriver.95.0.4638.5400.nupkg.sha512",
+        "selenium.webdriver.chromedriver.96.0.4664.4500.nupkg.sha512",
         "selenium.webdriver.chromedriver.nuspec"
       ]
     },
@@ -3466,6 +3472,22 @@
         "nupkg-icon.png",
         "selenium.webdriver.geckodriver.0.30.0.nupkg.sha512",
         "selenium.webdriver.geckodriver.nuspec"
+      ]
+    },
+    "Selenium.WebDriver.MSEdgeDriver/94.0.992.38": {
+      "sha512": "NtLRppiEeCz1JhhJI9IuFCtFYt+GTgA+VGnpM8scQBBFA30NgZXLuyH50sWsWe9sdEjg3iTSCPlZzKpiitzINA==",
+      "type": "package",
+      "path": "selenium.webdriver.msedgedriver/94.0.992.38",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Selenium.WebDriver.MSEdgeDriver.targets",
+        "driver/mac64/msedgedriver",
+        "driver/win32/msedgedriver.exe",
+        "driver/win64/msedgedriver.exe",
+        "license/license.txt",
+        "selenium.webdriver.msedgedriver.94.0.992.38.nupkg.sha512",
+        "selenium.webdriver.msedgedriver.nuspec"
       ]
     },
     "SpecFlow/3.9.22": {
@@ -5964,7 +5986,6 @@
       "path": "system.private.datacontractserialization/4.1.1",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.3/System.Private.DataContractSerialization.dll",
@@ -6857,7 +6878,6 @@
       "path": "system.runtime.serialization.json/4.0.2",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8047,7 +8067,6 @@
       "path": "system.xml.xmldocument/4.0.1",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8086,7 +8105,6 @@
       "path": "system.xml.xmlserializer/4.0.11",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8239,14 +8257,15 @@
       "Otp.Net >= 1.2.2",
       "Selenium.Support >= 4.0.0-rc2",
       "Selenium.WebDriver.GeckoDriver >= 0.30.0",
-      "Selenium.Webdriver.ChromeDriver >= 95.0.4638.5400",
+      "Selenium.WebDriver.MSEdgeDriver >= 94.0.992.38",
+      "Selenium.Webdriver.ChromeDriver >= 96.0.4664.4500",
       "SpecFlow >= 3.9.22",
       "SpecFlow.Plus.LivingDocPlugin >= 3.9.57",
       "SpecFlow.Tools.MsBuild.Generation >= 3.9.22",
       "SpecRun.SpecFlow >= 3.9.7",
       "System.Data.SqlClient >= 4.8.3",
       "selenium.Firefox.Webdriver >= 0.27.0",
-      "selenium.webdriver >= 4.0.1",
+      "selenium.webdriver >= 4.1.0",
       "system.drawing.common >= 6.0.0-rc.1.21451.13"
     ]
   },
@@ -8332,9 +8351,13 @@
             "target": "Package",
             "version": "[0.30.0, )"
           },
+          "Selenium.WebDriver.MSEdgeDriver": {
+            "target": "Package",
+            "version": "[94.0.992.38, )"
+          },
           "Selenium.Webdriver.ChromeDriver": {
             "target": "Package",
-            "version": "[95.0.4638.5400, )"
+            "version": "[96.0.4664.4500, )"
           },
           "SpecFlow": {
             "target": "Package",
@@ -8362,7 +8385,7 @@
           },
           "selenium.webdriver": {
             "target": "Package",
-            "version": "[4.0.1, )"
+            "version": "[4.1.0, )"
           },
           "system.drawing.common": {
             "target": "Package",
@@ -8384,7 +8407,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }

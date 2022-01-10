@@ -1,6 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Infrastructure;
 
 namespace Automation
 {
@@ -9,11 +9,13 @@ namespace Automation
     {
 
         private readonly ScenarioContext _scenarioContext;
+        private readonly ISpecFlowOutputHelper _specFlowOutputHelper;
 
-        public RandomJokeAPISteps(ScenarioContext scenarioContext)
+        public RandomJokeAPISteps(ScenarioContext scenarioContext, ISpecFlowOutputHelper outputHelper)
         {
 
             _scenarioContext = scenarioContext;
+            _specFlowOutputHelper = outputHelper;
 
         }
 
@@ -24,7 +26,7 @@ namespace Automation
 
             string Response = RandomJoke.GetRandomJoke();
 
-            Assert.IsFalse(string.IsNullOrEmpty(Response), "The Response was null or empty.");
+            Check.IsFalse(string.IsNullOrEmpty(Response), "The Response was null or empty.");
             _scenarioContext["Response"] = Response;
 
         }
@@ -34,9 +36,8 @@ namespace Automation
         public void ThenTheAPIReturnsASuccessResponse()
         {
 
-
             RandomJoke.Response response = JsonConvert.DeserializeObject<RandomJoke.Response>(_scenarioContext["Response"].ToString());
-            Assert.AreEqual("success", response.type);
+            Check.AreEqual("success", response.type);
 
         }
         
@@ -46,8 +47,8 @@ namespace Automation
         {
 
             RandomJoke.Response response = JsonConvert.DeserializeObject<RandomJoke.Response>(_scenarioContext["Response"].ToString());
-            Assert.IsNotNull(response.value.joke);
-            Report.OutputJson((string)_scenarioContext["Response"], _scenarioContext);
+            Check.IsNotNullOrEmpty(response.value.joke);
+            Report.OutputJson((string)_scenarioContext["Response"], _scenarioContext, _specFlowOutputHelper);
 
         }
 
