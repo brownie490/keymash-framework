@@ -7,7 +7,7 @@
   },
   "Reporting": {
 
-    "output": false,
+    "output": true,
     "AddWatermark": true,
     "WatermarkDateTimeFormat": "dd-MMM-yyyy HH:mm:ss",
     "WatermarkFont": "Arial Bold",
@@ -27,8 +27,8 @@
   },
   "driver": {
 
-    "browser": "chrome",
-    "type": "remote",
+    "browser": "firefox",
+    "type": "local",
     "Headless": true,
     "startmaximized": false,
     "WindowXSize": 1920,

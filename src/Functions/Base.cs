@@ -70,7 +70,7 @@ namespace Automation
         /// <summary>
         ///     Sets up a new instance of a local ChromeDriver
         /// </summary>
-        /// <returns>The new isntance of the local ChromeDriver</returns>
+        /// <returns>The new instance of the local ChromeDriver</returns>
         public static IWebDriver NewChromeDriver()
         {
 
@@ -85,7 +85,7 @@ namespace Automation
         /// <summary>
         ///     Sets up a new instance of a remote ChromeDriver
         /// </summary>
-        /// <returns>The new isntance of the remote ChromeDriver</returns>
+        /// <returns>The new instance of the remote ChromeDriver</returns>
         public static RemoteWebDriver NewRemoteChromeDriver()
         {
 
@@ -161,7 +161,7 @@ namespace Automation
         /// <summary>
         ///     Sets up a new instance of a local FirefoxDriver
         /// </summary>
-        /// <returns>The new isntance of the local FirefoxDriver</returns>
+        /// <returns>The new instance of the local FirefoxDriver</returns>
         public static IWebDriver NewFirefoxDriver()
         {
 
@@ -180,7 +180,7 @@ namespace Automation
         /// <summary>
         ///     Sets up a new instance of a remote FirefoxDriver
         /// </summary>
-        /// <returns>The new isntance of the remote FirefoxDriver</returns>
+        /// <returns>The new instance of the remote FirefoxDriver</returns>
         public static RemoteWebDriver NewRemoteFirefoxDriver()
         {
 
@@ -249,7 +249,7 @@ namespace Automation
         ///// <summary>
         /////     Sets up a new instance of a local EdgeDriver
         ///// </summary>
-        ///// <returns>The new isntance of the local EdgeDriver</returns>
+        ///// <returns>The new instance of the local EdgeDriver</returns>
         //public static IWebDriver NewEdgeDriver()
         //{
 
@@ -282,7 +282,7 @@ namespace Automation
         ///// <summary>
         /////     Sets up a new instance of a remote EdgeDriver
         ///// </summary>
-        ///// <returns>The new isntance of the remote EdgeDriver</returns>
+        ///// <returns>The new instance of the remote EdgeDriver</returns>
         //public static RemoteWebDriver NewRemoteEdgeDriver()
         //{
         //    RemoteWebDriver driver;

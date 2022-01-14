@@ -17,24 +17,24 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotNetSeleniumExtras.PageObjects.Core" Version="4.0.0-beta4" />
+    <PackageReference Include="DotNetSeleniumExtras.PageObjects.Core" Version="4.0.1" />
     <PackageReference Include="Gherkin" Version="22.0.0" />
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.37" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
-    <PackageReference Include="MSTest.TestFramework" Version="2.2.7" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.39" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.8" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Otp.Net" Version="1.2.2" />
     <PackageReference Include="selenium.Firefox.Webdriver" Version="0.27.0" />
-    <PackageReference Include="Selenium.Support" Version="4.0.0-rc2" />
+    <PackageReference Include="Selenium.Support" Version="4.1.0" />
     <PackageReference Include="selenium.webdriver" Version="4.1.0" />
-    <PackageReference Include="Selenium.Webdriver.ChromeDriver" Version="96.0.4664.4500" />
-    <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.30.0" />
-    <PackageReference Include="SpecFlow" Version="3.9.22" />
+    <PackageReference Include="Selenium.Webdriver.ChromeDriver" Version="97.0.4692.7100" />
+    <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.30.0.1" />
+    <PackageReference Include="SpecFlow" Version="3.9.40" />
     <PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.57" />
-    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.22" />
-    <PackageReference Include="SpecRun.SpecFlow" Version="3.9.7" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.40" />
+    <PackageReference Include="SpecRun.SpecFlow" Version="3.9.31" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
-    <PackageReference Include="system.drawing.common" Version="6.0.0-rc.1.21451.13" />
+    <PackageReference Include="system.drawing.common" Version="6.0.0" />
   </ItemGroup>
 
 </Project>
